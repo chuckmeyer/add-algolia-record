@@ -18,6 +18,11 @@ inputs:
   record:
     description: 'JSON record to write to this index (see https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records for details)'
     required: true
+
+outputs:
+  object_id: 
+    description: 'The objectID returned from Algolia'
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
