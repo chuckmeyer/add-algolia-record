@@ -1,0 +1,24 @@
+name: 'Create or Update Algolia Index Record'
+description: 'Create or update a record in an Algolia index'
+
+branding:
+  icon: 'search'  
+  color: 'blue'
+
+inputs:
+  app_id:
+    description: 'ID of this application in your Algolia account'
+    required: true
+  api_key:
+    description: 'API key with write permissions to the index in your Algolia account'
+    required: true
+  index_name:
+    description: 'Name of the index to write this record'
+    required: true
+  record:
+    description: 'JSON record to write to this index (see https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records for details)'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+

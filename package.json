@@ -1,0 +1,21 @@
+{
+  "name": "add-index-record",
+  "version": "1.0.0",
+  "description": "Create or update a record in an Algolia index",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "package": "ncc build index.js -o dist",
+    "test": "eslint index.js && jest --passWithNoTests"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "1.6.0",
+    "algoliasearch": "^4.11.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.31.1",
+    "eslint": "7.32.0",
+    "jest": "27.2.4"
+  }
+}
