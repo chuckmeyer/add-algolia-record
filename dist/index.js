@@ -4378,6 +4378,7 @@ async function run() {
 
     index.saveObject(JSON.parse(inputs.record), {'autoGenerateObjectIDIfNotExist': true})
       .then(({ objectID }) => {
+        core.setOutput('object_id', objectID);
         core.info(
           `Created record in index ${inputs.indexName} with objectID ${objectID}.`
         );
