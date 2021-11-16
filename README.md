@@ -1,4 +1,4 @@
-# Create or Update Comment
+# Create or Update Algolia Index Record
 
 A GitHub action to add or update a record in an Algolia index.
 
@@ -31,7 +31,23 @@ A GitHub action to add or update a record in an Algolia index.
 
 #### Outputs
 
-None
+Outputs the ID of the created record object. Note that in order to read the step output the action step must have an id.
+
+```yml
+      - name: Add to index
+        id: index_step
+        uses: chuckmeyer/add-algolia-record@v0
+        with:
+          app_id: ${{ secrets.ALGOLIA_APP_ID }}
+          api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          index_name: ${{ github.event.repository.name }}
+          record: |
+            {"title": "${{ github.event.issue.title }}", "url": "${{ github.event.issue.html_url }}", "labels": "${{ github.event.issue.labels }}",
+             "objectID": "${{ github.event.issue.number }}"}
+      - name: Check outputs
+        run: |
+          echo "Object ID - ${{ steps.index_step.outputs.object_id }}"
+```
 
 ## License
 
