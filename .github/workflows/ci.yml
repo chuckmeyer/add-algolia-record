@@ -38,6 +38,7 @@ jobs:
           else \
             echo "::set-output name=issue-number::1"; \
           fi
+
   test:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     needs: [build]
