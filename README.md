@@ -1,6 +1,6 @@
 # Create or Update Algolia Index Record
 
-A GitHub action to add or update a record in an Algolia index.
+A GitHub action to add or update a record in an Algolia index. Useful for building indices of Algolia objects like Issues or Pull Requests from events.
 
 ## Usage
 

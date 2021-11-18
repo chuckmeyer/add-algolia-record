@@ -1,5 +1,5 @@
 name: 'Create or Update Algolia Index Record'
-description: 'Create or update a record in an Algolia index'
+description: 'Create or update a record in an Algolia index. Useful for building indices of Algolia objects like Issues or Pull Requests from events.'
 
 branding:
   icon: 'search'  
