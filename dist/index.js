@@ -27,7 +27,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
-const os = __importStar(__nccwpck_require__(87));
+const os = __importStar(__nccwpck_require__(37));
 const utils_1 = __nccwpck_require__(278);
 /**
  * Commands
@@ -138,8 +138,8 @@ exports.getIDToken = exports.getState = exports.saveState = exports.group = expo
 const command_1 = __nccwpck_require__(351);
 const file_command_1 = __nccwpck_require__(717);
 const utils_1 = __nccwpck_require__(278);
-const os = __importStar(__nccwpck_require__(87));
-const path = __importStar(__nccwpck_require__(622));
+const os = __importStar(__nccwpck_require__(37));
+const path = __importStar(__nccwpck_require__(17));
 const oidc_utils_1 = __nccwpck_require__(41);
 /**
  * The code to exit an action
@@ -448,8 +448,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issueCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__nccwpck_require__(747));
-const os = __importStar(__nccwpck_require__(87));
+const fs = __importStar(__nccwpck_require__(147));
+const os = __importStar(__nccwpck_require__(37));
 const utils_1 = __nccwpck_require__(278);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
@@ -671,8 +671,8 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const http = __nccwpck_require__(605);
-const https = __nccwpck_require__(211);
+const http = __nccwpck_require__(685);
+const https = __nccwpck_require__(687);
 const pm = __nccwpck_require__(443);
 let tunnel;
 var HttpCodes;
@@ -1581,7 +1581,7 @@ function encode(format, ...args) {
     return format.replace(/%s/g, () => encodeURIComponent(args[i++]));
 }
 
-const version = '4.11.0';
+const version = '4.12.0';
 
 const destroy = (base) => {
     return () => {
@@ -1699,7 +1699,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var clientCommon = __nccwpck_require__(905);
 var transporter = __nccwpck_require__(193);
 var requesterCommon = __nccwpck_require__(373);
-var crypto = __nccwpck_require__(417);
+var crypto = __nccwpck_require__(113);
 
 function createBrowsablePromise(options) {
     const browse = (data) => {
@@ -1972,6 +1972,15 @@ const getApiKey = (base) => {
     };
 };
 
+const getAppTask = (base) => {
+    return (taskID, requestOptions) => {
+        return base.transporter.read({
+            method: requesterCommon.MethodEnum.Get,
+            path: clientCommon.encode('1/task/%s', taskID.toString()),
+        }, requestOptions);
+    };
+};
+
 const getDictionarySettings = (base) => {
     return (requestOptions) => {
         return base.transporter.read({
@@ -2007,15 +2016,6 @@ const getTopUserIDs = (base) => {
         return base.transporter.read({
             method: requesterCommon.MethodEnum.Get,
             path: '1/clusters/mapping/top',
-        }, requestOptions);
-    };
-};
-
-const getAppTask = (base) => {
-    return (taskID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/task/%s', taskID.toString()),
         }, requestOptions);
     };
 };
@@ -3154,9 +3154,9 @@ module.exports = __nccwpck_require__(721);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var http = __nccwpck_require__(605);
-var https = __nccwpck_require__(211);
-var URL = __nccwpck_require__(835);
+var http = __nccwpck_require__(685);
+var https = __nccwpck_require__(687);
+var URL = __nccwpck_require__(310);
 
 /* eslint functional/prefer-readonly-type: 0 */
 const agentOptions = { keepAlive: true };
@@ -3931,7 +3931,7 @@ module.exports = algoliasearch;
  * In addition, we also set explicitly the default export below making
  * this Common JS module in compliance with es6 modules specification.
  */
-module.exports.default = algoliasearch;
+module.exports["default"] = algoliasearch;
 
 
 /***/ }),
@@ -3950,13 +3950,13 @@ module.exports = __nccwpck_require__(219);
 "use strict";
 
 
-var net = __nccwpck_require__(631);
-var tls = __nccwpck_require__(16);
-var http = __nccwpck_require__(605);
-var https = __nccwpck_require__(211);
-var events = __nccwpck_require__(614);
-var assert = __nccwpck_require__(357);
-var util = __nccwpck_require__(669);
+var net = __nccwpck_require__(808);
+var tls = __nccwpck_require__(404);
+var http = __nccwpck_require__(685);
+var https = __nccwpck_require__(687);
+var events = __nccwpck_require__(361);
+var assert = __nccwpck_require__(491);
+var util = __nccwpck_require__(837);
 
 
 exports.httpOverHttp = httpOverHttp;
@@ -4216,7 +4216,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 357:
+/***/ 491:
 /***/ ((module) => {
 
 "use strict";
@@ -4224,7 +4224,7 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ 417:
+/***/ 113:
 /***/ ((module) => {
 
 "use strict";
@@ -4232,7 +4232,7 @@ module.exports = require("crypto");
 
 /***/ }),
 
-/***/ 614:
+/***/ 361:
 /***/ ((module) => {
 
 "use strict";
@@ -4240,7 +4240,7 @@ module.exports = require("events");
 
 /***/ }),
 
-/***/ 747:
+/***/ 147:
 /***/ ((module) => {
 
 "use strict";
@@ -4248,7 +4248,7 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 605:
+/***/ 685:
 /***/ ((module) => {
 
 "use strict";
@@ -4256,7 +4256,7 @@ module.exports = require("http");
 
 /***/ }),
 
-/***/ 211:
+/***/ 687:
 /***/ ((module) => {
 
 "use strict";
@@ -4264,7 +4264,7 @@ module.exports = require("https");
 
 /***/ }),
 
-/***/ 631:
+/***/ 808:
 /***/ ((module) => {
 
 "use strict";
@@ -4272,7 +4272,7 @@ module.exports = require("net");
 
 /***/ }),
 
-/***/ 87:
+/***/ 37:
 /***/ ((module) => {
 
 "use strict";
@@ -4280,7 +4280,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 622:
+/***/ 17:
 /***/ ((module) => {
 
 "use strict";
@@ -4288,7 +4288,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 16:
+/***/ 404:
 /***/ ((module) => {
 
 "use strict";
@@ -4296,7 +4296,7 @@ module.exports = require("tls");
 
 /***/ }),
 
-/***/ 835:
+/***/ 310:
 /***/ ((module) => {
 
 "use strict";
@@ -4304,7 +4304,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 669:
+/***/ 837:
 /***/ ((module) => {
 
 "use strict";
@@ -4353,7 +4353,7 @@ module.exports = require("util");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const { inspect } = __nccwpck_require__(669);
+const { inspect } = __nccwpck_require__(837);
 const core = __nccwpck_require__(186);
 const algoliasearch = __nccwpck_require__(930);
 
